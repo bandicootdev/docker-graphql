@@ -30,7 +30,7 @@ jobs:
         
     - name: Push Docker image
       run: |
-        docker push thaymerapv/docker-graphql:1.2.0 .
+        docker push thaymerapv/docker-graphql:1.2.0
         
         
         
