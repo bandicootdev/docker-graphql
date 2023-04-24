@@ -22,8 +22,16 @@ jobs:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
-        echo "Iniciando login"
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "Finalizando login"
-#0     - name: Build the Docker image
+      
+    - name: Build Docker image
+      run: |
+        docker build -t thaymerapv/docker-graphql:1.2.0 .
+        
+    - name: Push Docker image
+      run: |
+        docker push thaymerapv/docker-graphql:1.2.0 .
+        
+        
+        
 #       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
